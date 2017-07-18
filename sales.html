@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小萝卜的网站 -- 二手物品</title>
+    <link rel="shortcut icon" href="img/favicon_self.jpg">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/sales.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- sidebar begin -->
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo.png" class="logo">
+                </a>
+                <a href="#" class="navbar-toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav" id="navigation">
+                    <li><a href="index.html#navigation">首页</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">学习<span class="caret"></span></a>           
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="notes.html">原创笔记</a></li>
+                            <li><a href="shares.html">资源分享</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="essay.html">随笔</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">轻松一刻<span class="caret"></span></a>           
+                        <ul class="dropdown-menu">
+                            <li><a href="games.html">小游戏</a></li>
+                            <li><a href="sales.html">二手物品</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">联系我们</a></li>             
+                </ul>
+            
+                <!-- 注册、登录 -->
+                <a data-toggle="modal" href="#register" class="navbar-right navbar-text btn-xs btn btn-info">注册</a>
+                <span class="navbar-right navbar-text">|</span>
+                <a data-toggle="modal" href="#login" class="navbar-right navbar-text btn-xs btn btn-info">登录</a>
+
+                <!-- 搜索 -->
+                <form action="" class="navbar-form navbar-right">
+                    <label for="search" class="sr-only">请输入搜索内容：</label>          
+                    <div class="input-group">
+                      <input type="text" class="form-control search" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                      </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- sidebar end  -->
+
+    <!-- modal —— login and register -->
+    <!-- register begin -->
+    <div class="modal bs-xample-modal-lg" id="register">  <!-- 全屏的半透明遮罩层 -->
+        <div class="modal-dialog modal-lg">  <!-- 宽高、定位 -->
+            <div class="modal-content"> <!-- 背景色、边框、倒角、阴影 -->
+                <div class="modal-header"><h3>新用户注册</h3></div>
+                <div class="modal-body">
+                    <form class="form">
+                        <div class="control-group">
+                            <label class="control-label">用户名：</label>
+                            <div class="controls">
+                                <input type="text" data-validation-callback-callback="ck_username" class="form-control" placeholder="Please Enter Your UserName"/>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">密码：</label>
+                            <div class="controls">
+                                <input 
+                                type="password" 
+                                name="pwd" 
+                                data-validation-callback-callback="ck_pwd" class="form-control" placeholder="Please Enter Your Password"
+                              />
+                                <p class="help-block"></p>
+                            </div>
+                         </div>
+                        <div class="control-group">
+                            <label class="control-label">确认密码：</label>
+                            <div class="controls">
+                                <input 
+                                    type="password" 
+                                    data-validation-match-match="pwd" 
+                                    name="repwd" 
+                                    data-validation-match-message="两次密码必须保持一致"  class="form-control" placeholder="Please Enter Your Password Again"
+                                  />
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">手机号码：</label>
+                            <div class="controls">
+                                <input type="text" data-validation-callback-callback="ck_tel" class="form-control" placeholder="Please Enter Your Tel Number"/>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">邮箱地址：</label>
+                            <div class="controls">
+                                <input type="email" data-validation-email-message="请输入正确的邮箱地址" class="form-control" placeholder="Please Enter Your Email Address"/>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-success" value="Submit">
+                    <input data-dismiss="modal" type="button" class="btn btn-success" value="Cancel">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- register end -->
+
+    <!-- login begin -->
+    <div class="modal bs-xample-modal-sm" id="login">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header"><h3>登录</h3></div>
+                <div class="modal-body">
+                    <form action="" class="form">
+                        <div class="form-group">
+                            <label for="user">用户名：</label>
+                            <input type="text" id="user" class="form-control" placeholder="Please Enter Your UserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">密码：</label>
+                            <input type="text" id="pwd" class="form-control" placeholder="Please Enter Your Password">
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">自动登录
+                                </label>
+                            </div>
+                        </div>
+                        <input type="button" class="btn btn-danger" value="Login">
+                        <input data-dismiss="modal" type="button" class="btn btn-danger" value="Cancel">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login end  -->
+
+    <!-- main section begin -->
+    <div class="main">
+        <div class="container">
+        	<ol class="breadcrumb">
+              <li><a href="index.html#navigation">首页</a></li>
+              <li><a href="#">轻松一刻</a></li>
+              <li class="active">二手物品</li>
+            </ol>
+
+            <div class="sales-book">
+                <h3><span class="icon-label"></span>书籍</h3>
+                <figure>
+                    <img src="img/goods/goods2.jpg">
+                    <figcaption>
+                        <div class="goods-name">
+                            <h5><a data-toggle="modal" href="#buy" data-toggle="modal" href="#buy" href="#">《JavaScript高级程序设计》(第3版)</a></h5>
+                        </div>
+                        <div class="price"><span>当前价：￥<strong>30</strong></span><s>当当价：￥74.2</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods4.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《你不知道的JS》(上卷)</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>15</strong></span><s>当当价：￥32.9</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods7.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《JavaScript面向对象编程指南》(第2版)</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>20</strong></span><s>当当价：￥46.3</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods6.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《JavaScript设计模式与开发实践》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>15</strong></span><s>当当价：￥39.6</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods9.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《深入浅出nodejs》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>20</strong></span><s>当当价：￥49.6</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods8.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《学习JavaScript数据结构与算法》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>10</strong></span><s>当当价：￥26.5</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods1.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《Nodejs+MongoDB+Angular.js Web开发》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>40</strong></span><s>当当价：￥85.3</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods3.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《JavaScript DOM编程艺术》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>12</strong></span><s>当当价：￥32.9</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods5.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《JavaScript设计模式》</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>15</strong></span><s>当当价：￥38.7</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods10.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">《你不知道的JS》（中卷）</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>35</strong></span><s>当当价：￥53</s></div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="sales-others">
+                <h3><span class="icon-label"></span>杂物</h3>
+                <figure>
+                    <img src="img/goods/goods11.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">萌萌哒史迪仔</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>30</strong></span><s>某网价：￥75</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods12.png">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">趴趴熊</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>35</strong></span><s>某网价：￥80</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods13.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">可爱大脸猫</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>40</strong></span><s>某网价：￥120</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods14.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">有线键鼠套装</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>20</strong></span><s>某网价：￥65</s></div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="img/goods/goods15.jpg">
+                    <figcaption>
+                        <div class="goods-name"><h5><a data-toggle="modal" href="#buy" href="#">简约电脑包</a></h5></div>
+                        <div class="price"><span>当前价：￥<strong>15</strong></span><s>某网价：￥50</s></div>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+    </div>
+    <!-- main section end -->
+
+    <!-- modal —— simple shopping cart begin -->
+    <div class="modal bs-xample-modal-sm" id="buy">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header"><h3>立即购买</h3></div>
+                <div class="modal-body">
+                    <form action="" class="form">
+                        <div class="form-group">
+                            <label for="user">真实姓名：</label>
+                            <input type="text" id="user" class="form-control" placeholder="请输入您的真实姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">手机号码：</label>
+                            <input type="text" id="tel" class="form-control" placeholder="请输入您的手机号码">
+                        </div>
+                        <div class="form-group">
+                            <label for="addr">收货地址：</label>
+                            <div id="addr">
+                                <select id="cmbProvince" name="cmbProvince"></select>  
+                                <select id="cmbCity" name="cmbCity"></select>  
+                                <select id="cmbArea" name="cmbArea"></select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="详细地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">购买数量：</label>
+                            <input type="text" id="amount" class="form-control">
+                        </div>
+                        <input type="button" class="btn btn-danger" value="付款">
+                        <input data-dismiss="modal" type="button" class="btn btn-danger" value="取消">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- simple shopping cart end -->
+    
+    <!-- footer begin -->
+    <div class="footer">
+        <p>copyright&copy;小萝卜</p>
+    </div>
+    <!-- footer end -->
+        
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootlint.js"></script>
+    <script src="js/jsAddress.js"></script>
+  </body>
+</html>
