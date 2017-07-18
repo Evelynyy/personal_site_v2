@@ -1,0 +1,68 @@
+body{
+	background-color: #F5F5F5;
+}
+ul li{
+	list-style: none;
+}
+.logo{
+	margin-top: -15px;
+}
+#navigation li:hover{
+	background-color: #E7E7E7;
+}
+.mian{
+	margin: 0 auto;
+}
+.footer{
+	border-top: 1px solid #ccc;
+	margin-top: 30px;
+	padding: 5px;
+	width: 100%;
+	text-align: center;
+} 
+.footer p{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+
+/* shares.html style */
+a.view-all{
+	float: right;
+}
+
+/* index.html & essay.html */
+.side-right span.ctx-time{
+	font-size: 12px;
+	color: #555;
+	position: relative;
+	left: 20px;
+	top: 2px;
+	font-style: italic;
+}
+.ctx button{
+	float: right;
+	margin-right: 5px;
+	padding: 2px;
+}
+.ctx button span{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 3px;
+	margin-right: 2px;	
+	background-color: #f00;
+}
+.ctx button span.icon-like{
+	background: url('../img/icon-like.png') no-repeat;
+}
+.ctx button span.icon-comment{
+	background: url('../img/icon-comment.png') no-repeat;
+}
+.ctx button span.icon-collect{
+	background: url('../img/icon-collect.png') no-repeat;
+}
+.ctx button span.icon-forwarding{
+	background: url('../img/icon-forwarding.png') no-repeat;
+}
